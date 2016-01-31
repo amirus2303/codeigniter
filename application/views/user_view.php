@@ -6,9 +6,10 @@
 </head>
 <body>
 	
-		<?php foreach ($users as $user) : ?>
+		<!-- <?php foreach ($users as $user) : ?>
 			<h2><?php echo $user->username; ?></h2>
-		<?php endforeach; ?>
+		<?php endforeach; ?> -->
+		
 	
 	
 </body>

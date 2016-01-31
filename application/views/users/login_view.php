@@ -17,11 +17,10 @@
 	
 <?php else: ?>
 	<h2>Login form</h2>
-	<?php 
-	if($this->session->flashdata('errors')){
-		echo $this->session->flashdata('errors');
-	}
-	?>
+	<?php if($this->session->flashdata('errors')) : ?>
+		<div class="alert alert-danger"><?php  echo $this->session->flashdata('errors'); ?></div>
+	
+	<?php endif; ?>
 
 
 

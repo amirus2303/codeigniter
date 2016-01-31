@@ -14,8 +14,9 @@ class User_model extends CI_Model {
 	}
 
 
-	public function create_users($data){
-		$this->db->insert('users', $data);
+	public function create_user($data){
+		$insert_data = $this->db->insert('users', $data);
+		return $insert_data;
 
 	}
 
@@ -37,10 +38,9 @@ class User_model extends CI_Model {
 	public function login_user($username, $password){
 
 		$this->db->where('username', $username);
-		$this->db->where('password', $password);
-			
 		$result = $this->db->get('users');
-		if($result->num_rows() == 1){
+		$db_password = $result->row(2)->password; //Puisque le password a été haché on doit utiliser cette procedure pour comparer
+		if(password_verify($password, $db_password)){
 			return $result->row(0)->id;
 
 		} else {
